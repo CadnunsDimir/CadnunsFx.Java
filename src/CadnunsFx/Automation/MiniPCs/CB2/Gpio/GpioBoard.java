@@ -17,8 +17,8 @@ public class GpioBoard {
     public static void NewPin(int numberPin, GpioPin.Direction direction)throws Exception{
         if(!HasThisPin(numberPin))
           listaGpioPins.add(new GpioPin(numberPin, direction));
-        else
-            throw new Exception("Pino já importado!!!");
+        //else 
+            //throw new Exception("Pino já importado!!!");
     }
     
     public static boolean HasThisPin(int numberPin){
