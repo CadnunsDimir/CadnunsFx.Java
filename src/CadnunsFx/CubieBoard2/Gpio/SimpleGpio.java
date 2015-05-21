@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CadnunsFx.Automation.MiniPCs.CB2.Gpio;
+package CadnunsFx.CubieBoard2.Gpio;
 
 import java.io.BufferedReader;
 import java.io.Closeable;
