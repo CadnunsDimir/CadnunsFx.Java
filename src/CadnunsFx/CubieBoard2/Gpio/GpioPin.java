@@ -5,6 +5,13 @@
  */
 package CadnunsFx.CubieBoard2.Gpio;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Tiagop
@@ -12,19 +19,73 @@ package CadnunsFx.CubieBoard2.Gpio;
 public class GpioPin {
     
     private int numberPin;
-    
-    public GpioPin(int numberPin, Direction direction){
+    private Direction sentido; 
+    public GpioPin(int numberPin, Direction direction) throws Gpio_PermissionFileException{
         this.numberPin = numberPin;
-        
+        this.ImportPinOnCubie();
+        this.SetDirection(direction);
+        this.sentido = direction;
     }
 
     /**
      * @return the numberPin
      */
+    
+    private void ImportPinOnCubie() throws Gpio_PermissionFileException{
+        File arquivo = new File(GpioBoard.GpioPath+"export");        
+        if(arquivo.exists()){
+            FileWriter fw;
+            try {
+                fw = new FileWriter(arquivo);
+                fw.write(numberPin);
+                fw.close();
+            } catch (Exception ex) {
+                throw new Gpio_PermissionFileException(GpioExceptionType.Export, ex);
+            }                    
+        }else{
+            throw new Gpio_PermissionFileException(
+                    GpioExceptionType.ArquivoNaoExiste, 
+                    new FileNotFoundException("nome do arquivo :"+arquivo.getAbsolutePath()));
+        }         
+    }
+    
+    private void SetDirection(Direction direcao) throws Gpio_PermissionFileException{
+        File arquivo = new File(GpioBoard.GpioPath+"gpio"+numberPin+"*/direction");        
+        if(arquivo.exists()){
+            FileWriter fw;
+            try {
+                fw = new FileWriter(arquivo);
+                fw.write(direcao.toString());
+                fw.close();
+            } catch (Exception ex) {
+                throw new Gpio_PermissionFileException(GpioExceptionType.SetDirection, ex);
+            }                    
+        }else{
+            throw new Gpio_PermissionFileException(
+                    GpioExceptionType.ArquivoNaoExiste, 
+                    new FileNotFoundException("nome do arquivo :"+arquivo.getAbsolutePath()));
+        }        
+    }
+    
     public int getNumberPin() {
         return numberPin;
     }
-    
+
+    /**
+     * @return the sentido
+     */
+    public Direction getSentido() {
+        
+        return sentido;
+    }
+
+    /**
+     * @param sentido the sentido to set
+     */
+    public void setSentido(Direction sentido) throws Gpio_PermissionFileException {        
+        SetDirection(sentido);
+        this.sentido = sentido;
+    }
     
     
     //----------------Definição das contantes ou enum abaixo dessa linha ----------------
@@ -35,4 +96,12 @@ public class GpioPin {
     public enum Value{
         Value_on, Value_off
     }
+    
+    static enum GpioExceptionType{
+        Export,SetDirection,SetValue,ArquivoNaoExiste            
+    }
+    
+    
 }
+
+

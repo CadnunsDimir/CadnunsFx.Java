@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/Servidor/HomeControl.java</file>
-            <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/Utils/Utils.java</file>
-            <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/.gitignore</file>
-            <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/Arquivos/ManipulaArq.java</file>
+            <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/CubieBoard2/Gpio/GpioPin.java</file>
+            <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/CubieBoard2/Gpio/Gpio_PermissionFileException.java</file>
             <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/CubieBoard2/Gpio/GpioBoard.java</file>
             <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/Arquivos/Log/LogRegister.java</file>
-            <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/Data/GerenciaDB_base.java</file>
         </group>
     </open-files>
 </project-private>

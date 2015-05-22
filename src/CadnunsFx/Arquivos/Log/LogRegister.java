@@ -25,6 +25,7 @@ public class LogRegister{
     BufferedWriter bufferCursor;
     FileReader leitor;
     BufferedReader bufferLeitor;
+    boolean isInit = true;
     public LogRegister(String fileName, String AppName){
         this.fileName = fileName;
         RegistraEventos("inicializada aplicação \'" + AppName+"\'!!");
@@ -47,6 +48,10 @@ public class LogRegister{
                 bufferCursor.write(texto.get(i).toString());
                 bufferCursor.newLine();                
             }
+            if(isInit){             
+             bufferCursor.write("--------------------------------------------------------------------------------------\n");
+             isInit = false;
+            }
             bufferCursor.write(Utils.DataAtual()+" | " +eventos);
             bufferCursor.close();
             bufferLeitor.close();
@@ -54,7 +59,7 @@ public class LogRegister{
             try {
                 arquivo.createNewFile();
                 RegistraEventos(eventos);
-                RegistraEventos(ex.getMessage()+"\n"+ex.getStackTrace());
+                RegistraEventos(ex.getMessage());
             } catch (IOException ex1) {
                 System.exit(0);
             }

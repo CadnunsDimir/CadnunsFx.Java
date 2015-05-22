@@ -24,7 +24,15 @@ public class Utils {
         {
             campo.setText("");
         }
-    }  
+    }
+    
+    public static void PropriedadesSistema(){        
+        System.getProperties().list(System.out);
+    }
+    
+    public static String SO_Name(){
+        return System.getProperties().get("os.name").toString();
+    }
     
     public static String DataAtual() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
