@@ -5,9 +5,12 @@
  */
 package CadnunsFx.CubieBoard2.Gpio;
 
+import CadnunsFx.Tools.Uteis;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,12 +35,18 @@ public class GpioPin {
      */
     
     private void ImportPinOnCubie() throws Gpio_PermissionFileException{
-        File arquivo = new File(GpioBoard.GpioPath+"export");        
+        File arquivo = new File(GpioBoard.GpioPath+"export");   
+        Uteis.c("Tentando escrever no arquivo"+arquivo.getAbsolutePath());
         if(arquivo.exists()){
             FileWriter fw;
             try {
                 fw = new FileWriter(arquivo);
-                fw.write(numberPin);
+//                BufferedWriter bufferCursor = new BufferedWriter(fw);
+//                bufferCursor.write(numberPin);
+//                bufferCursor.close();
+                //String.valueOf(numberPin);
+                fw.write(String.valueOf(numberPin));
+                fw.flush();
                 fw.close();
             } catch (Exception ex) {
                 throw new Gpio_PermissionFileException(GpioExceptionType.Export, ex);
@@ -50,7 +59,16 @@ public class GpioPin {
     }
     
     private void SetDirection(Direction direcao) throws Gpio_PermissionFileException{
-        File arquivo = new File(GpioBoard.GpioPath+"gpio"+numberPin+"*/direction");        
+        //String caminho= GpioBoard.GpioPath+"gpio"+numberPin+"*/";
+        String[] pasta = new File(GpioBoard.GpioPath).list();
+        String nomePasta = "gpio"+numberPin;
+        File arquivo = null;
+        for(String file : pasta){
+            if(file.contains(nomePasta)) 
+                arquivo =  new File(GpioBoard.GpioPath+file +"/direction");
+        }
+        
+        Uteis.c("Tentando escrever no arquivo "+arquivo.getAbsolutePath());
         if(arquivo.exists()){
             FileWriter fw;
             try {

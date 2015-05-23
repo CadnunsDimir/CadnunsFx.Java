@@ -7,7 +7,7 @@
 
 package CadnunsFx.CubieBoard2.Gpio;
 
-import CadnunsFx.Utils.Utils;
+import CadnunsFx.Tools.Uteis;
 
 /**
  *
@@ -17,7 +17,7 @@ public class Gpio_OpSystemNotCorrectException extends Exception{
     String erro = "GPIO INCORRECT OPERATION SYSTEM";
     String msg = " : Para manipular a Gpio, é necessário utilizar uma placa que "
                 +"execute o Sistema Operational Linux, como a Cubieboard ou Raspberry Pi\n\t"
-                +"Sistema Operacional : "+Utils.SO_Name();
+                +"Sistema Operacional : "+Uteis.SO_Name();
         
     @Override
     public String toString(){        

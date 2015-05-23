@@ -1,4 +1,4 @@
-package CadnunsFx.Utils;
+package CadnunsFx.Tools;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -15,7 +15,7 @@ import javax.swing.JTextField;
  *
  * @author Tiagop
  */
-public class Utils {
+public class Uteis {
     
     public static void LimparSeString(JTextField campo){
         try{
@@ -38,6 +38,10 @@ public class Utils {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
         return dateFormat.format(date);
+    }
+    //escreve na saida de sistema
+    public static void c(String l){
+        System.out.println(l);
     }
 
    

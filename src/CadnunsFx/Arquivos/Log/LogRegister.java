@@ -5,7 +5,7 @@
  */
 package CadnunsFx.Arquivos.Log;
 
-import CadnunsFx.Utils.Utils;
+import CadnunsFx.Tools.Uteis;
 import java.io.*;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -52,7 +52,7 @@ public class LogRegister{
              bufferCursor.write("--------------------------------------------------------------------------------------\n");
              isInit = false;
             }
-            bufferCursor.write(Utils.DataAtual()+" | " +eventos);
+            bufferCursor.write(Uteis.DataAtual()+" | " +eventos);
             bufferCursor.close();
             bufferLeitor.close();
         } catch (FileNotFoundException ex) {

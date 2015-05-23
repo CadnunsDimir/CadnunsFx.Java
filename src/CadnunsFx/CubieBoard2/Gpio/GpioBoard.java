@@ -7,7 +7,7 @@ package CadnunsFx.CubieBoard2.Gpio;
 
 import com.sun.javafx.Utils;
 import java.util.ArrayList;
-
+import CadnunsFx.Tools.Uteis;
 /**
  *
  * @author Tiagop
@@ -16,8 +16,10 @@ public class GpioBoard {
     static ArrayList <GpioPin> listaGpioPins = new ArrayList<GpioPin>();
     protected static String GpioPath = "/sys/class/gpio/";
     public static void NewPin(int numberPin, GpioPin.Direction direction)throws Gpio_OpSystemNotCorrectException, Gpio_PermissionFileException{
-        if(!HasThisPinOnApp(numberPin) && Utils.isUnix())
+        if(!HasThisPinOnApp(numberPin) && Utils.isUnix()){
+            Uteis.c("não tenho o pino e é linux");
           listaGpioPins.add(new GpioPin(numberPin, direction));
+        }
         else if(!Utils.isUnix())
             throw new Gpio_OpSystemNotCorrectException();        
     }
