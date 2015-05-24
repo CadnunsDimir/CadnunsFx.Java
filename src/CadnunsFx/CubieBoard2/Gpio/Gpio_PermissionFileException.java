@@ -28,6 +28,8 @@ public class Gpio_PermissionFileException extends Exception {
                 return "Não foi possivel Configurar a Direção(Set Direction) do Pino | ";
             case SetValue:
                 return "Não foi possivel Alterar o valor de saida (Set Value) do Pino | ";
+            case GetValue:
+                return "Não foi possivel Ler o valor de saida (Get Value) do Pino | ";
             case ArquivoNaoExiste:
                 return "O arquivo Solicitado não existe | ";
             default : 

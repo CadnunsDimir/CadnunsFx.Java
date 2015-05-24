@@ -39,7 +39,10 @@ public class Uteis {
         Date date = new Date();
         return dateFormat.format(date);
     }
-    //escreve na saida de sistema
+    /**
+     *escreve na saida de sistema   |   equivale ao método System.out.println()
+     * @param l a mensagem que se deseja escreve na saida padrão da aplicação(console)
+     */
     public static void c(String l){
         System.out.println(l);
     }
