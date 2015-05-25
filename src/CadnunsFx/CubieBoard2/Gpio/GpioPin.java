@@ -27,7 +27,8 @@ public class GpioPin {
     private String absolutePinFolder;
     public GpioPin(int numberPin, Direction direction) throws Gpio_PermissionFileException{
         this.numberPin = numberPin;
-        this.ResetPinOnCubie();
+        if(this.IsImportedOnCubie())
+            this.ResetPinOnCubie();
         this.ImportPinOnCubie();
         this.SetDirection(direction);
         this.sentido = direction;
@@ -60,6 +61,17 @@ public class GpioPin {
         }         
     }
     
+    private boolean IsImportedOnCubie(){
+        String[] pasta = new File(GpioBoard.GpioPath).list();
+        String nomePasta = "gpio"+numberPin;
+        File arquivo = null;
+        for(String file : pasta){
+            if(file.contains(nomePasta)) {
+                return true;
+            }
+        }
+        return false;
+    }
     
     private void ImportPinOnCubie() throws Gpio_PermissionFileException{
         File arquivo = new File(GpioBoard.GpioPath+"export");   
@@ -144,8 +156,7 @@ public class GpioPin {
             throw new Gpio_PermissionFileException(GpioExceptionType.GetValue,
                     new Exception("O Pino "+numberPin+" não está configurado como uma entrada padrão nessa aplicação.\n\tSentido(direction) configurado: "+sentido.name()));
         }                
-    }
-    
+    }    
     
     public int getNumberPin() {
         return numberPin;

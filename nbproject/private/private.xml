@@ -4,10 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/CubieBoard2/Gpio/GpioPin.java</file>
-            <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/CubieBoard2/Gpio/Gpio_PermissionFileException.java</file>
+            <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/CubieBoard2/Gpio/SimpleGpio.java</file>
             <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/CubieBoard2/Gpio/GpioBoard.java</file>
-            <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/Arquivos/Log/LogRegister.java</file>
             <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/Tools/Uteis.java</file>
+            <file>file:/C:/Users/Tiagop/Documents/NetBeansProjects/CadnunsFx.Java/src/CadnunsFx/Data/GerenciaDB_base.java</file>
         </group>
     </open-files>
 </project-private>
